@@ -16,27 +16,17 @@ const frameworks = [
   "Solid|5 de julio de 2021|250,000|80%"
 ];
 
-// 1. Iterar el arreglo frameworks
 for (const item of frameworks) {
-
-  // 2. Dividir la cadena usando el separador "|"
   const parts = item.split("|");
-
-  // Extraer cada valor y eliminar espacios con .trim()
   const frameworkName        = parts[0].trim();
   const releaseDate          = parts[1].trim();
   const usersName            = parts[2].trim();
   const popularityPercentage = parts[3].trim();
-
-  // Crear el objeto frameworkObj con las propiedades exactas
   const frameworkObj = {
     frameworkName:        frameworkName,
     releaseDate:          releaseDate,
     usersName:            usersName,
     popularityPercentage: popularityPercentage
   };
-
-  // Llamar a addRow pasando el objeto y el ID de la tabla
   addRow(frameworkObj, "data-frameworks");
-
 }
