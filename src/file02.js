@@ -16,31 +16,27 @@ const frameworks = [
   "Solid|5 de julio de 2021|250,000|80%"
 ];
 
-/**
- * TO-DO:
- *
- * 1. Itere el arreglo frameworks.
- *    Referencia: https://javascript.info/array#loops
- * 
- * 2. En cada iteración:
- *
- *    Tome una cadena del arreglo y divídala en partes usando el separador "|".
- *    Referencia: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split
- *   
- *    Extraiga los valores: nombre del framework, fecha de lanzamiento, número de usuarios y porcentaje de popularidad.
- *    Referencia: https://javascript.info/destructuring-assignment   
- * 
- *    Cree un objeto frameworkObj con las siguientes propiedades:
- *    - frameworkName
- *    - releaseDate
- *    - usersName
- *    - popularityPercentage
- *    Referencia: https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Working_with_Objects
- * 
- *    Asegúrese de eliminar los espacios en blanco alrededor de cada valor usando `.trim()`.
- *    Referencia: https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String/trim
- * 
- *    LlamE a la función addRow pasando el objeto frameworkObj y el ID del cuerpo de la tabla "data-frameworks",
- *    para agregar una nueva fila con estos datos al cuerpo de la tabla HTML.
- */
+// 1. Iterar el arreglo frameworks
+for (const item of frameworks) {
 
+  // 2. Dividir la cadena usando el separador "|"
+  const parts = item.split("|");
+
+  // Extraer cada valor y eliminar espacios con .trim()
+  const frameworkName        = parts[0].trim();
+  const releaseDate          = parts[1].trim();
+  const usersName            = parts[2].trim();
+  const popularityPercentage = parts[3].trim();
+
+  // Crear el objeto frameworkObj con las propiedades exactas
+  const frameworkObj = {
+    frameworkName:        frameworkName,
+    releaseDate:          releaseDate,
+    usersName:            usersName,
+    popularityPercentage: popularityPercentage
+  };
+
+  // Llamar a addRow pasando el objeto y el ID de la tabla
+  addRow(frameworkObj, "data-frameworks");
+
+}
